@@ -1,0 +1,10 @@
+{% extends 'reviews/base.html' %}
+
+ {% block title %} Thank You  {% endblock title %}
+
+{% block content %}
+    <a href="{% url 'index' %}">HOME</a>
+    Thank You 
+    {{message}}
+{% endblock content %}
+        

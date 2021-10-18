@@ -1,0 +1,24 @@
+{% extends 'reviews/base.html' %}
+
+ {% block title %} All Reviews  {% endblock title %}
+
+{% block content %}
+   <h1>{{object.user_name}}</h1>
+   <p>{{object.rating}}</p>
+   <p>{{object.review_text}}</p>
+   <p>{{object.is_favorite}} 1</p>
+   
+   {% if is_favorite %}
+      <p>This is my Favorite</p>
+   {% else %}
+      <form action="/reviews/favorite" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="review_id" value={{object.id}}>
+      <button>Favorite</button>
+   </form>
+   {% endif %}
+      
+   
+   
+{% endblock content %}
+        
